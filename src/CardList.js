@@ -1,20 +1,22 @@
 import React from "react";
 import Card from "./Card";
+import "tachyons";
 
+const CardList = ({ robots }) => {
+  return (
+    <div>
+      {robots.map((user, i) => {
+        return (
+          <Card
+            key={robots[i].id}
+            id={robots[i].id}
+            name={robots[i].name}
+            email={robots[i].email}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
-const CardList = ({robots}) => {
-
-    const user = robots.map((rb, index) => {
-        return <li key={`robots[${index}].id`}>{<Card id={robots[index].id} name={robots[index].name} email={robots[index].email}/>}</li>
-    })
-
-    return(
-        <div>
-            <ul>
-                {user}
-            </ul>
-        </div>
-    )
-}
-
-export default CardList
+export default CardList;
